@@ -1,0 +1,24 @@
+type PlayerModel{
+    id:ID!# ! used to marked as mandatory
+    name:String
+    team:Team
+}
+
+enum Team{
+    CSK
+    MI
+    DC
+    GT
+    RCB
+}
+
+type Query{
+    findAll:[PlayerModel]
+    findById(id:ID):PlayerModel
+}
+
+type Mutation{
+    createPlayer(name:String, team:Team):PlayerModel
+    updatePlayerTeam(id:ID, team:Team):PlayerModel
+    deletePlayer(id:ID):String
+}
